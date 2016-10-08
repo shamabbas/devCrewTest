@@ -1,3 +1,16 @@
+# == Schema Information
+#
+# Table name: teams
+#
+#  id             :integer          not null, primary key
+#  name           :string
+#  user_id        :integer
+#  created_at     :datetime         not null
+#  updated_at     :datetime         not null
+#  monsters_count :integer
+#  monsters_limit :integer
+#
+
 require 'rails_helper'
 
 describe Team, type: :model do

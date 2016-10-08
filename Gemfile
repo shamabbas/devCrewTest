@@ -70,6 +70,8 @@ gem 'rack-contrib' # JSONP callbacks
 gem 'grape-swagger'
 gem 'grape-swagger-rails' # Embedding Swagger into app
 
+# Document models, fixtures, test cases
+gem 'annotate'
 
 # Deployment on Heroku
 gem 'rails_12factor', group: :production
