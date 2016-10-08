@@ -23,6 +23,7 @@ module Devcrew
     # Monster CRUD operations API
 
     # Get All Monsters
+    # GET url = api/v1/monsters
     resource :monsters do
       get '/' do
         Monster.all
@@ -30,6 +31,7 @@ module Devcrew
     end
 
     # Get Monster by ID
+    # GET url = api/v1/monster/:id
     resource :monster do
       params do
         requires :id, type: Integer
@@ -40,6 +42,8 @@ module Devcrew
     end
 
     # Create Monster with required params
+    # POST # url = /api/v1/create_monster/ {"name": "whatever", "team_id": @teamid, "user_id": @userid
+    # "monster_type": "fire", "power": 12}
     resource :create_monster do
       params do
         requires :name, type: String
@@ -64,6 +68,7 @@ module Devcrew
     end
 
     # Delete Monster by ID
+    # DELETE url = /api/v1/delete_monster/:id
     resource :delete_monster do
       params do
         requires :id, type: Integer
@@ -88,6 +93,7 @@ module Devcrew
     # Team CRUD operations API
 
     # Get All Teams
+    # GET url=api/v1/teams
     resource :teams do
       get '/' do
         Team.all
@@ -95,6 +101,7 @@ module Devcrew
     end
 
     # Get Monster by ID
+    # GET url=/api/v1/team/:id
     resource :team do
       params do
         requires :id, type: Integer
@@ -105,6 +112,7 @@ module Devcrew
     end
 
     # Create Team with required params
+    # POST # url = api/v1/create_team/ {"name": "whatever", "user_id": @userid}
     resource :create_team do
       params do
         requires :name, type: String
@@ -127,6 +135,7 @@ module Devcrew
     end
 
     # Delete Team by ID
+    # DELETE url=/api/v1/delete_team/:id
     resource :delete_team do
       params do
         requires :id, type: Integer
