@@ -2,7 +2,7 @@ module Devcrew
   class Request < Grape::API
     version 'v1', using: :path
     format :json
-    rescue_from :all
+    # rescue_from :all
 
     error_formatter :json, lambda { |message, backtrace, options, env|
                            {
@@ -40,9 +40,9 @@ module Devcrew
         requires :user_id, type: Integer
       end
       post '/' do
-        monster = Monster.create(name: params[:name], team_id: params[:team_id],power: params[:power],
+        monster = Monster.new(name: params[:name], team_id: params[:team_id],power: params[:power],
             monster_type: params[:monster_type],user_id: params[:user_id])
-        if monster
+        if monster.save!
           {
               status: 'success',
               message: 'Monster is created successfully!'
@@ -104,8 +104,8 @@ module Devcrew
         requires :user_id, type: Integer
       end
       post '/' do
-        team = Team.create(name: params[:name], user_id: params[:user_id])
-        if team
+        team = Team.new(name: params[:name], user_id: params[:user_id])
+        if team.save
           {
               status: 'success',
               message: 'Team is created successfully!'

@@ -14,9 +14,9 @@ Rails.application.routes.draw do
   # set root path
   root 'dashboard#index'
   # error response pages
-  get '*path' => redirect('/')
-  get '/404', to: 'errors#not_found'
-  get '/500', to: 'errors#server_error'
+  # get '*path' => redirect('/')
+  # get '/404', to: 'errors#not_found'
+  # get '/500', to: 'errors#server_error'
 
   # API+API Documentation
   # mount GrapeSwaggerRails::Engine => '/apidoc'
