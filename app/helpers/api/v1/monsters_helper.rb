@@ -1,2 +1,2 @@
-module Api::V1::MonstersHelper
-end
+# module Api::Api::MonstersHelper
+# end

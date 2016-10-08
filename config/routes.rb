@@ -18,17 +18,20 @@ Rails.application.routes.draw do
   get '/404', to: 'errors#not_found'
   get '/500', to: 'errors#server_error'
 
+  # API+API Documentation
+  # mount GrapeSwaggerRails::Engine => '/apidoc'
+  mount Devcrew::Request => '/api'
   # API routes
-  namespace :api do
-    namespace :v1 do
-      resources :monsters do
-        collection do
-          get :index
-          post :create_monster
-          delete :delete_monster
-          put :update_monster
-        end
-      end
-    end
-  end
+  # namespace :api do
+  #   namespace :dev_crew do
+  #     resources :monsters do
+  #       collection do
+  #         get :index
+  #         post :create_monster
+  #         delete :delete_monster
+  #         put :update_monster
+  #       end
+  #     end
+  #   end
+  # end
 end

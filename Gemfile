@@ -63,4 +63,13 @@ gem 'omniauth-facebook'
 gem 'simple_form'
 gem "sprockets-rails"
 
+# Adding REST-based framework for building APIs
+gem 'grape'
+gem 'grape-entity'
+gem 'rack-contrib' # JSONP callbacks
+gem 'grape-swagger'
+gem 'grape-swagger-rails' # Embedding Swagger into app
+
+
+# Deployment on Heroku
 gem 'rails_12factor', group: :production
