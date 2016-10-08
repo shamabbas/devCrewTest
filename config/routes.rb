@@ -19,7 +19,7 @@ Rails.application.routes.draw do
   # get '/500', to: 'errors#server_error'
 
   # API+API Documentation
-  # mount GrapeSwaggerRails::Engine => '/apidoc'
+  mount GrapeSwaggerRails::Engine => '/apidoc'
   mount Devcrew::Request => '/api'
   # API routes
   # namespace :api do

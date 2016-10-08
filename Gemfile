@@ -69,6 +69,7 @@ gem 'grape-entity'
 gem 'rack-contrib' # JSONP callbacks
 gem 'grape-swagger'
 gem 'grape-swagger-rails' # Embedding Swagger into app
+gem 'rack-cors', :require => 'rack/cors'
 
 # Document models, fixtures, test cases
 gem 'annotate'

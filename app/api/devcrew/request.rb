@@ -1,8 +1,10 @@
+require 'rack/cors'
+require 'grape-swagger'
 module Devcrew
   class Request < Grape::API
     version 'v1', using: :path
     format :json
-    # rescue_from :all
+    rescue_from :all
 
     error_formatter :json, lambda { |message, backtrace, options, env|
                            {
@@ -12,6 +14,11 @@ module Devcrew
                            }.to_json
 
                          }
+
+    before do
+      header['Access-Control-Allow-Origin'] = '*'
+      header['Access-Control-Request-Method'] = '*'
+    end
 
     # Monster CRUD operations API
 

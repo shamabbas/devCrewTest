@@ -227,6 +227,7 @@ GEM
     rack-contrib (1.4.0)
       git-version-bump (~> 0.15)
       rack (~> 1.4)
+    rack-cors (0.4.0)
     rack-test (0.6.3)
       rack (>= 1.0)
     rails (4.2.5.1)
@@ -378,6 +379,7 @@ DEPENDENCIES
   pg
   pry-rails
   rack-contrib
+  rack-cors
   rails (= 4.2.5.1)
   rails-footnotes
   rails_12factor
