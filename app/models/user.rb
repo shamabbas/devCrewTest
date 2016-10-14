@@ -28,6 +28,7 @@ class User < ActiveRecord::Base
   TOTAL_MONSTERS = 20 # Setting constant variable for total monsters
   TOTAL_TEAMS = 3 # Setting constant variable for total teams
 
+  # Devise configuration
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable,
          :omniauthable, :omniauth_providers => [:facebook]

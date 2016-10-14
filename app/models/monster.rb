@@ -14,14 +14,16 @@
 
 class Monster < ActiveRecord::Base
   MONSTER_CATEGORIES = %w(fire water earth electric wind)
-  belongs_to :user, inverse_of: :monsters
   belongs_to :team, inverse_of: :monsters, counter_cache: true
+  belongs_to :user, inverse_of: :monsters
 
+  # Validatons applied
   validates :name, presence: true, length: { maximum: 150 }
   validates :power, presence: true
   validates :user_id, :team_id, presence: true, allow_nil: true
-
   validates :monster_type, presence: true, inclusion: {in: MONSTER_CATEGORIES}
+
+  # callbacks before creating or updating
   before_validation :number_of_monsters,  on: [:create, :update]
   before_validation :number_of_user_monsters,  on: [:create, :update]
 

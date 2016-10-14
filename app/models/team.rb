@@ -15,6 +15,7 @@ class Team < ActiveRecord::Base
   belongs_to :user
   has_many :monsters, dependent: :destroy, inverse_of: :team
 
+  # Validatons applied
   validates :name, presence: true, uniqueness: true, length: { in: 2..150 }
   validates :user_id, presence: true
   validate :number_of_teams, on: [:create, :update]
