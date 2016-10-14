@@ -22,20 +22,20 @@ class Monster < ActiveRecord::Base
   validates :user_id, :team_id, presence: true, allow_nil: true
 
   validates :monster_type, presence: true, inclusion: {in: MONSTER_CATEGORIES}
-  before_validation :available_monsters,  on: [:create, :update]
-  before_validation :available_user_monsters,  on: [:create, :update]
+  before_validation :number_of_monsters,  on: [:create, :update]
+  before_validation :number_of_user_monsters,  on: [:create, :update]
 
   # Method to check monsters limit
-  def available_monsters
+  def number_of_monsters
     if team
       unless team.total_mosnters_count
         errors.add(:base, 'Reached the number of monsters for a team')
       end
     end
   end
-  def available_user_monsters
+  def number_of_user_monsters
     if user
-      unless user.total_user_mosnters_count
+      unless user.user_mosnters_count
         errors.add(:base, 'Reached the number of monsters')
       end
     end

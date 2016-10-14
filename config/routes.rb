@@ -21,17 +21,4 @@ Rails.application.routes.draw do
   # API+API Documentation
   mount GrapeSwaggerRails::Engine => '/apidoc'
   mount Devcrew::Request => '/api'
-  # API routes
-  # namespace :api do
-  #   namespace :dev_crew do
-  #     resources :monsters do
-  #       collection do
-  #         get :index
-  #         post :create_monster
-  #         delete :delete_monster
-  #         put :update_monster
-  #       end
-  #     end
-  #   end
-  # end
 end

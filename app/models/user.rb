@@ -36,11 +36,11 @@ class User < ActiveRecord::Base
   has_many :monsters, dependent: :destroy
 
   # check teams for current user
-  def total_team_member
+  def team_member_count
     self.teams.count < TOTAL_TEAMS
   end
   # check monsters for current user
-  def total_user_mosnters_count
+  def user_mosnters_count
     self.monsters.count < TOTAL_MONSTERS
   end
 

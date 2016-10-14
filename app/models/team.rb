@@ -17,7 +17,7 @@ class Team < ActiveRecord::Base
 
   validates :name, presence: true, uniqueness: true, length: { in: 2..150 }
   validates :user_id, presence: true
-  validate :available_teams, on: [:create, :update]
+  validate :number_of_teams, on: [:create, :update]
 
   def total_mosnters_count
     self.monsters.count < 3
@@ -25,8 +25,8 @@ class Team < ActiveRecord::Base
 
   private
   # Method to check teams limit
-  def available_teams
-    unless user.total_team_member
+  def number_of_teams
+    unless user.team_member_count
       errors.add(:base, 'Team limit has been reached!')
     end
   end
